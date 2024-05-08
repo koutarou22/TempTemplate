@@ -59,39 +59,62 @@ class Vec2
 public:
 	T x;
 	T y;
+	T GetX() { return(x); }
 	void SetX(T _x) { x = _x; }
-	voh
+	void PrintVec() { cout << "(x,y)= (" << x << "," << y << ")" << endl; }
+	T Length() const { return ((T)sqrt(x * x + y * y)); }
+
+	bool operator > (const Vec2<T>& other)
+	{
+		return(this->Length() > other.Length());
+	}
 };
 //課題　ベクトルの長さをT型で返すメンバ関数を作成する
 //　　　ベクトルの長さを比較する＞演算子をオーバーロード
 //　　　ベクトルの長さを比べて長い方表示して本当にあっているか確認
 
-template<typename T>
 int main()
 {
-	//int var1 = 20;
-	//int var2 = 10;
-	//int res = myMax(var1, var2);
-	//int res = tMax<int>(var1, var2);
-	//cout << "myMax var1 var2 :" << res << endl;
-    //
-	//float var3 = 20.5;
-	//float var4 = 1.5;
-	//
-	///*float res2 = myMax(var3, var4);*/
-	//float res2 = tMax<float>(var3, var4);
-	//cout << "myMax var3 var4 :" << res2 << endl;
-	//
-	//double var5 = 0.00000062;
-	//double var6 = 1e-15;
-	//double res3 = myMax(var5, var6);
-	//double res3 = tMax<double>(var5, var6);
-	//cout << "myMax var5 var6 :" << res3 << endl;
-
+	/*int var1 = 20;
+	int var2 = 10;
+	int res = myMax(var1, var2);
+	int res = tMax<int>(var1, var2);
+	cout << "myMax var1 var2 :" << res << endl;
+    
+	float var3 = 20.5;
+	float var4 = 1.5;
+	
+	float res2 = myMax(var3, var4);
+	float res2 = tMax<float>(var3, var4);
+	cout << "myMax var3 var4 :" << res2 << endl;
+	
+	double var5 = 0.00000062;
+	double var6 = 1e-15;
+	double res3 = myMax(var5, var6);
+	double res3 = tMax<double>(var5, var6);
+	cout << "myMax var5 var6 :" << res3 << endl;
 	
 	Vec2<double> v;
 	v.x = 2.2;
 	v.y = 3.4;
 	v.PrintVec();
+	*/
+
+
+	Vec2<int> v1;
+	v1.x = 4;
+	v1.y = 1;
+
+	Vec2<int> v2;
+	v2.x = 1;
+	v2.y = 1;
+
+	//if (v1 > v2)
+	//	v1.PrintVec();
+	//else
+	//	v2.PrintVec();
+
+	Vec2<int> res = tMax(v1, v2);
+	res.PrintVec();
 	return 0;
 }
